@@ -31,9 +31,12 @@ print(int(a))
 b = '3.14159'
 print(float(b))
 
-
-
-
+print(False)
+print(int(False))
+print(int(True))
+print(bool("False"))
+print(bool("True"))
+print(bool(0))
 
 
 
