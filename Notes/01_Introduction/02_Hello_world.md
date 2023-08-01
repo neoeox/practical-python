@@ -82,7 +82,7 @@ The underscore `_` holds the last result.
 Programs are put in `.py` files.
 
 ```python
-# hello.py
+# ch01.파이썬소개.py
 print('hello world')
 ```
 
@@ -94,7 +94,7 @@ To execute a program, run it in the terminal with the `python` command.
 For example, in command-line Unix:
 
 ```bash
-bash % python hello.py
+bash % python ch01.파이썬소개.py
 hello world
 bash %
 ```
