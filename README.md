@@ -15,6 +15,8 @@ free of spam, signups, and other nonsense. Enjoy!
 
 [wikidocs 실용 파이썬 프로그래밍: 프로그래밍 유경험자를 위한 강좌](https://wikidocs.net/book/4673)
 
+[GitHub Repo neoeox](https://github.com/neoeox/practical-python)
+
 --David Beazley ([https://dabeaz.com](https://dabeaz.com)), [@dabeaz](https://mastodon.social/@dabeaz)
 
 (P.S. This course is about Python. If you want a Python course that's about programming,

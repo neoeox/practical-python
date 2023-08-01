@@ -56,7 +56,8 @@ while principal > 0:
     if principal < 0:
         total_paid = total_paid + principal
         principal = 0
-    print(month, total_paid, principal)
+    # print(month, total_paid, principal)
+    print(f'{month:4d}, {total_paid:10.2f}, {principal:10.2f}')
 
 print('total_paid=', total_paid, ', month=', month)
 
