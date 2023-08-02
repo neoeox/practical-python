@@ -316,3 +316,106 @@ with open('Work/Data/portfolio.csv', 'rt') as f:
     for line in f:
         row = line.split(',')
         print(row)
+
+
+def sumcount(n):
+    '''
+    정수 1부터 n까지의 합을 반환
+    '''
+    total = 0
+    while n > 0:
+        total += n
+        n -= 1
+    return total
+
+a = sumcount(100)
+print('a=', a)
+
+#
+import math
+x = math.sqrt(10)
+print('x=', x)
+
+import urllib.request
+u = urllib.request.urlopen('http://www.python.org/')
+data = u.read()
+print(data)
+
+
+# 예외를 붙잡아 처리하기
+import os
+print(os.getcwd())
+name = ''
+shares = 0
+price = 0
+total_cost = 0
+with open('Work/Data/portfolio.csv', 'rt') as f:
+    headers = next(f).split(',')
+    print(headers)
+    for line in f:
+        try:
+            row = line.split(',')
+            name = row[0]
+            shares = int(row[1])
+            price = float(row[2])
+            total_cost = total_cost + (shares * price)
+        except ValueError:
+            print("Couldn't parse", line)
+    print('total_cost=', total_cost)
+
+# 예외를 일으키기
+raise RuntimeError('What a kerfuffle')
+
+# 함수의 첫 문장이 문자열이면 그것을 문서로 사용한다.
+# help(greeting) 명령을 타이핑해 문서가 표시되는지 확인해 보라.
+def greeting(name):
+    'Issues a greeting'
+    print('Hello', name)
+greeting('Guido')
+greeting('Paula')
+
+#
+def portfolio_cost(filename):
+    name = ''
+    shares = 0
+    price = 0
+    total_cost = 0
+    with open(filename, 'rt') as f:
+        headers = next(f).split(',')
+        print(headers)
+        for line in f:
+            row = line.split(',')
+            name = row[0]
+            shares = int(row[1])
+            price = float(row[2])
+            total_cost = total_cost + (shares * price)
+    return total_cost
+
+cost = portfolio_cost('Work/Data/portfolio.csv')
+print('Total cost=', cost)
+
+# 필드가 누락된 파일을 가지고 함수를 실행하면 무슨 일이 일어나는가?
+cost = portfolio_cost('Work/Data/missing.csv')
+print('Total cost=', cost)
+
+
+#
+import csv
+f = open('Work/Data/portfolio.csv')
+f = open('Work/Data/missing.csv')
+rows = csv.reader(f)
+headers = next(rows)
+print(headers)
+for row in rows:
+    print(row)
+f.close()
+
+
+
+
+
+
+
+
+
+
