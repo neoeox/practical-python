@@ -216,6 +216,252 @@ f = '%0.4f' % value
 print(f, type(f))
 
 
+a = 'Hello'
+b = [1, 4, 5]
+c = ('GOOG', 100, 490.1)
+print(a[0])
+print(b[-1])
+print(c[1])
+print(len(a))
+print(len(b))
+print(len(c))
+print(a * 3)
+print(b * 2)
+print(c * 2)
+
+a = (1, 2, 3)
+b = (4, 5)
+print(a + b)
+c = [1, 5]
+print(a + c)  # TypeError: can only concatenate tuple (not "list") to tuple
+
+a = list(range(0, 9))
+print(a)
+print(a[2:5])
+print(a[-5])
+print(a[:3])
+a[2:4] = [10, 11, 12]
+print(a)
+
+s = [1, 2, 3, 4, 5]
+print(s)
+print(sum(s))
+print(max(s))
+t = ['Hello', 'World']
+print(max(t))
+
+s = [1, 4, 9, 16]
+for i in s:
+    print(i)
+print(i)
+
+filename = "Work/Data/prices.csv"
+with open(filename, 'rt') as f:
+    lines = f.readlines()
+    for line in lines:
+        if line == '\n':
+            continue
+        print(line, end='')
+
+for i in range(100):
+    print(i)
+for j in range(10, 20):
+    print(j)
+for k in range(10, 50, 2):
+    print(k)
+
+names = ['Elwood', 'Jake', 'Curtis']
+for i, name in enumerate(names):
+    print(i, name)
+
+filename = "Work/Data/prices.csv"
+with open(filename) as f:
+    for lineno, line in enumerate(f, start=1):
+        print(lineno, line, end='')
+
+points = [
+    (1, 4), (10, 40), (23, 14), (5, 6), (7, 8)
+]
+for x, y in points:
+    print(x, y)
+for i, point in enumerate(points):
+    # print(i, point)
+    print(i, point[0], point[1])
+
+columns = ['name', 'shares', 'price']
+values = ['GOOG', 100, 490.1]
+pairs = zip(columns, values)
+for column, value in pairs:
+    print(column, '=', value)
+
+pairs = zip(columns, values)
+for pair in pairs:  # 작동 안됨 왜 -> 소비되면 값을 지움
+    print(pair)
+
+d = dict(zip(columns, values))
+print(d)
+for k, v in d.items():
+    print(k, v)
+
+for n in range(10):
+    print(n, end=' ')
+
+for n in range(10, 0, -1):
+    print(n, end=' ')
+
+for n in range(0, 10, 2):
+    print(n, end=' ')
+
+data = [4, 9, 1, 25, 16, 100, 49]
+print(min(data))
+print(max(data))
+print(sum(data))
+
+for x in data:
+    print(x)
+
+for n, x in enumerate(data):
+    print(n, x)
+
+
+prices = {
+    'GOOG': 490.1,
+    'AA': 23.45,
+    'IBM': 91.1,
+    'MSFT': 34.23
+}
+print(prices.items())
+pricelist = list(zip(prices.values(), prices.keys()))
+print(pricelist)
+print(min(pricelist))
+print(max(pricelist))
+print(sorted(pricelist))
+
+a = [5, 1, 2, 3, 4]
+b = ['w', 'x', 'y', 'z']
+c = [0.2, 0.4, 0.6, 0.8]
+print(list(zip(a, b, c)))
+
+
+portfolio = [
+    ('GOOG', 100, 490.1),
+    ('IBM', 50, 91.1),
+    ('CAT', 150, 83.44),
+    ('IBM', 100, 45.23),
+    ('GOOG', 75, 572.45),
+    ('AA', 50, 23.15)
+]
+from collections import Counter
+total_shares = Counter()
+for name, shares, price in portfolio:
+    total_shares[name] += shares
+print(total_shares['IBM'])
+print(total_shares)
+print(total_shares.most_common(3))
+
+from collections import defaultdict
+holdings = defaultdict(list)
+for name, shares, price in portfolio:
+    holdings[name].append((shares, price))
+print(holdings['IBM'])
+print(holdings)
+
+
+from collections import deque
+history = deque(maxlen=10)
+filename = "Work/Data/portfolio.csv"
+with open(filename) as f:
+    for line in f:
+        history.append(line)
+print(history)
+
+
+#
+import csv
+def read_portfolio(filename):
+    portfolio = []
+
+    with open(filename, 'rt') as f:
+        rows = csv.reader(f)
+        headers = next(rows)
+        for row in rows:
+            # holding = (row[0], int(row[1]), float(row[2]))
+            # stock = {
+            #     'name': row[0],
+            #     'shares': int(row[1]),
+            #     'price': float(row[2]),
+            # }
+            stock = {
+                headers[0]: row[0],
+                headers[1]: int(row[1]),
+                headers[2]: float(row[2]),
+            }
+            portfolio.append(stock)
+    return portfolio
+portfolio = read_portfolio('Work/Data/portfolio.csv')
+from collections import Counter
+holdings = Counter()
+for s in portfolio:
+    holdings[s['name']] += s['shares']
+print(holdings)
+print(holdings['IBM'])
+print(holdings['MSFT'])
+print(holdings.most_common(3))
+
+
+portfolio2 = read_portfolio('Work/Data/portfolio2.csv')
+holdings2 = Counter()
+for s in portfolio2:
+    holdings2[s['name']] += s['shares']
+print(holdings2)
+
+print(holdings)
+print(holdings2)
+combined = holdings + holdings2
+print(combined)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
