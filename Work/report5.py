@@ -1,10 +1,10 @@
 # report2.py
 
-from Work import fileparse  # 명령행에서 실행할 때
+import fileparse  # 명령행에서 실행할 때
 # import fileparse  # 터미널에서 실행할 때 (venv) PS C:\dev_py\projects\practical-python> python Work/report.py Work/Data/portfolio.csv Work/Data/prices.csv
-from Work.stock import Stock
-import Work.tableformat as tableformat
-from Work.portfolio import Portfolio
+from stock import Stock
+import tableformat as tableformat
+from portfolio import Portfolio
 
 
 def read_portfolio(filename):
