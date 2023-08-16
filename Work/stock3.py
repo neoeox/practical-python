@@ -1,6 +1,7 @@
 # stock.py
 
-from typedproperty import String, Integer, Float
+# from typedproperty import String, Integer, Float
+from Work.typedproperty import String, Integer, Float
 
 class Stock:
     """
