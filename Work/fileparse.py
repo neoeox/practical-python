@@ -7,7 +7,7 @@ from pprint import pprint
 
 
 # list(dict)
-def parse_csv_file(filename: str, select: list = None, types: list = None, has_headers=True, delimiter=',', sirence_errors=False):
+def parse_csv_file(filename: str, select: list = None, types: list = None, has_headers=True, delimiter=',', silence_errors=False):
     """
     CSV 파일을 파싱해 레코드의 목록을 생성
     """
@@ -31,7 +31,7 @@ def parse_csv_file(filename: str, select: list = None, types: list = None, has_h
                 try:
                     row = [func(val) for func, val in zip(types, row)]
                 except ValueError as e:
-                    if not sirence_errors:
+                    if not silence_errors:
                         print(f"Row {rowno}: Couldn't convert {row}")
                         print(f"Row {rowno}: Reason {e}")
                     continue
@@ -43,7 +43,7 @@ def parse_csv_file(filename: str, select: list = None, types: list = None, has_h
     return records
 
 
-def parse_csv(lines, select: list = None, types: list = None, has_headers=True, delimiter=',', sirence_errors=False):
+def parse_csv(lines, select: list = None, types: list = None, has_headers=True, delimiter=',', silence_errors=False):
     """
     CSV 파일을 파싱해 레코드의 목록을 생성
     """
@@ -66,7 +66,7 @@ def parse_csv(lines, select: list = None, types: list = None, has_headers=True, 
             try:
                 row = [func(val) for func, val in zip(types, row)]
             except ValueError as e:
-                if not sirence_errors:
+                if not silence_errors:
                     print(f"Row {rowno}: Couldn't convert {row}")
                     print(f"Row {rowno}: Reason {e}")
                 continue
